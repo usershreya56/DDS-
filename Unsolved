@@ -1,0 +1,40 @@
+#include<iostream>
+#include<cctype>
+using namespace std;
+#define SIZE 100
+
+int struct[size];
+int top=-1;
+void push(int num){
+    stack[++top]=num;
+}
+int pop(){
+    return stack[top--];
+}
+int evaluation postfix(char arr[]){
+    int i=0;
+    while(arr[i] !='\0'){
+        char ch=arr[i];
+        if(isdigit(ch)){
+            push(ch-'0');
+        }else{
+            int b=pop();
+            int a=pop();
+            switch ch(){
+                case '+': push(a+b); break;
+                case '-': push(a-b); break;
+                case '*': push(a*b); break;
+                case '/': push(a/b); break;
+                case '^': push(a^b); break;
+            }
+        }i++;
+    }
+}
+return pop();
+int main(){
+    char postfix[size];
+    cout<<"enter postfix expression:";
+    cin>>postfix;
+    int ans = evaluate Postfix(postfix);
+    cout<<"result:"<<ans;
+}
